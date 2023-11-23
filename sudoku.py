@@ -59,13 +59,14 @@ class Sudoku:
 
     def __init__(self):
         self.tablero = TABLERO
+        self.inicializeCells()
     
     def inicializeCells(self):
         # Inicializa celdas
         #cont = 1
-        for row in range(len(TABLERO_HERMANOS)):# iteracion sobre filas
+        for row in range(len(self.tablero)):# iteracion sobre filas
             #iterar sobre columnas
-            for column in range(len(TABLERO_HERMANOS)):# iteracion sobre columnas
+            for column in range(len(self.tablero)):# iteracion sobre columnas
                 newCell = Celda()
                 newCell.setSiblings(TABLERO_HERMANOS[row][column]) #seteo de coordenadas de los hermanos
                 #newCell.setValue(cont)
@@ -86,7 +87,8 @@ class Sudoku:
         pass
 
     def validateRegularRule(self):
-        # valida que se el sudoku actual este cumpliendo las reglas  (filas,columnas y cuadro)
+        # valida que se el sudoku actual este cumpliendo las reglas
+        # (filas,columnas y cuadro)
         pass
 
     def validateKillerRule(self):
@@ -97,7 +99,17 @@ class Sudoku:
         # Valida que se esten cumpliendo las reglas, posterior a un cambio
         # devuelve true si el cambio es correcto y false si debe deshacerse
         pass
-        
+
+    def solveSudokuKiller(self):
+        # Inicia la solucion de un sudoku killer
+        pass
+    
+    def solveSudokuRegular(self):
+        # Inicia la solucion de un sudoku regular
+        pass
+
+
+
 sudoku = Sudoku()
 
 sudoku.inicializeCells()
