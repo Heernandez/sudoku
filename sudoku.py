@@ -1,7 +1,7 @@
 from celda import Celda
 
 TABLERO = [
-    [[9],[8],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
     [[],[],[], [],[],[], [],[],[]],
     [[],[],[], [],[],[], [],[],[]],
 
@@ -93,6 +93,7 @@ class Sudoku:
 
     def validateKillerRule(self):
         # valida que se el sudoku actual este cumpliendo las reglas killer (sumas)
+        return True
         pass
     
     def validateRules(self):
@@ -111,5 +112,22 @@ class Sudoku:
 
 
 sudoku = Sudoku()
+
+
+celda0_0 = sudoku.tablero[0][0]
+
+celda0_1 = sudoku.tablero[0][1]
+print(celda0_0.getValue() if celda0_0.getValue() != "" else "vacio"," ",celda0_0.getValue() if celda0_1.getValue() != "" else "vacio",)
+
+celda0_0.setValue("9")
+celda0_1.setValue("9")
+
+
+print(celda0_0.getValue()," ",celda0_1.getValue())
+
+print(sudoku.validateKillerRule())
+
+#devuelve true si cumple, false sino cumple la regla
+# devuelve false si cumple la regla, true si esta fallando la regla
 
 #sudoku.inicializeCells()
