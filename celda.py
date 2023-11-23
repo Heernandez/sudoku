@@ -5,6 +5,10 @@ class Celda:
         self.totalAdd = ""
         self.siblingList = [] #coordenadas x,y de sus hermanos [[1,1],[3,1]]
     
+    
+    def setTotalAdd(self,totalAdd):
+        self.totalAdd = totalAdd
+        
     def setValue(self,value):
         self.value = value
     

@@ -1,31 +1,31 @@
-
+from celda import Celda
 
 TABLERO = [
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
+    [[9],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
 
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
 
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[]
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]]
 ]
 
 TABLERO_HERMANOS = [
-    [[1,2]],[[1,1]],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
+    [[[1,2]],[[1,1]],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
 
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
 
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[],
-    [],[],[], [],[],[], [],[],[]
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]]
 ]  
 TABLERO_SUMAS = [  # y , x
     [[11],[11],[10], [10],[ 7],[ 4], [ 4],[10],[11]],
@@ -41,17 +41,63 @@ TABLERO_SUMAS = [  # y , x
     [[10],[10],[ 4], [ 4],[18],[13], [13],[17],[17]]
 ]
 
+TABLERO_POSIBLES = [
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]],
+    [[],[],[], [],[],[], [],[],[]]
+]
+
 class Sudoku:
 
     def __init__(self):
         self.tablero = TABLERO
     
-
     def inicializeCells(self):
         # Inicializa celdas
-        for x in TABLERO_HERMANOS:
-            #iterar sobre eje filas
-            pass #for y in 
-        # Definir los hermanos
+        #cont = 1
+        for row in range(len(TABLERO_HERMANOS)):# iteracion sobre filas
+            #iterar sobre columnas
+            for column in range(len(TABLERO_HERMANOS)):# iteracion sobre columnas
+                newCell = Celda()
+                newCell.setSiblings(TABLERO_HERMANOS[row][column]) #seteo de coordenadas de los hermanos
+                #newCell.setValue(cont)
+                newCell.setTotalAdd(TABLERO_SUMAS[row][column]) # seteo del total de la suma con sus hermanos
+                #cont+=1
+                self.tablero[row][column] = newCell #guardo el objeto en el tablero
 
-        # Definir la suma
+    def calculateNewPossiblesKiller(self):
+        # se encarga de actualizar la lista de posibles con la regla killer
+        pass
+
+    def setNewPossibility(self):
+        # setea un valor final
+        pass        
+
+    def calculateNewPossibles(self):
+        # se encarga de actualizar la lista de posibles con la regla normal
+        pass
+
+    def validateRegularRule(self):
+        # valida que se el sudoku actual este cumpliendo las reglas  (filas,columnas y cuadro)
+        pass
+
+    def validateKillerRule(self):
+        # valida que se el sudoku actual este cumpliendo las reglas killer (sumas)
+        pass
+    
+    def validateRules(self):
+        # Valida que se esten cumpliendo las reglas, posterior a un cambio
+        # devuelve true si el cambio es correcto y false si debe deshacerse
+        pass
+        
+sudoku = Sudoku()
+
+sudoku.inicializeCells()
