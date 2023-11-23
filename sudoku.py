@@ -69,7 +69,7 @@ class Sudoku:
             for column in range(len(self.tablero)):# iteracion sobre columnas
                 newCell = Celda()
                 newCell.setSiblings(TABLERO_HERMANOS[row][column]) #seteo de coordenadas de los hermanos
-                #newCell.setValue(cont)
+                #print(newCell.getSiblings())
                 newCell.setTotalAdd(TABLERO_SUMAS[row][column]) # seteo del total de la suma con sus hermanos
                 #cont+=1
                 self.tablero[row][column] = newCell #guardo el objeto en el tablero
@@ -112,4 +112,4 @@ class Sudoku:
 
 sudoku = Sudoku()
 
-sudoku.inicializeCells()
+#sudoku.inicializeCells()
